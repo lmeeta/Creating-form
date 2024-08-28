@@ -19,8 +19,6 @@ const StudentParentDetail = ({ setCurrent }) => {
 
   const { studentData, setStudentData } = useContext(StudentContext);
 
-  console.log(studentData, "in pd");
-
   const handleParentChange = (e) => {
     const { name, value } = e.target;
     setParentDetail((prev) => ({ ...prev, [name]: value }));

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { StudentContext } from "../main";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 const StudentPersonalDetail = ({ setCurrent }) => {
   const [personalDetail, setPersonalDetail] = useState({
@@ -12,10 +13,9 @@ const StudentPersonalDetail = ({ setCurrent }) => {
     pinCoe: "",
   });
 
-  const { studentData, studentsList, setStudentsList } =
-    useContext(StudentContext);
-  console.log(studentData, "in personal");
-  console.log(studentsList, "Students");
+  const { studentData, setStudentsList } = useContext(StudentContext);
+
+  const navigate = useNavigate();
 
   const handlePersonalChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +27,8 @@ const StudentPersonalDetail = ({ setCurrent }) => {
     // setStudentData((prev) => ({ ...prev, ...personalDetail }));
 
     setStudentsList((prev) => [...prev, { ...studentData, ...personalDetail }]);
+
+    navigate("/list");
   };
 
   return (

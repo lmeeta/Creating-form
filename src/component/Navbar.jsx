@@ -1,8 +1,10 @@
 import React from "react";
 import reactLogo from "../assets/react.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,7 +15,7 @@ const Navbar = () => {
             </a>
           </div>
           <Link className="navbar-brand" to="/">
-            MV Tech
+            <h2>MV Tech</h2>
           </Link>
           <button
             className="navbar-toggler"
@@ -27,11 +29,21 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <Link className="nav-link" to="/list">
+            <div className="navbar-nav ">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/list" ? "active" : ""
+                }`}
+                to="/list"
+              >
                 Students List
               </Link>
-              <Link className="nav-link" aria-current="page" to="/form">
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/form" ? "active" : ""
+                }`}
+                to="/form"
+              >
                 Admission Form
               </Link>
             </div>

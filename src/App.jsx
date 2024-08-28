@@ -6,11 +6,12 @@ import { useState } from "react";
 import Navbar from "./component/Navbar";
 import StudentLists from "./component/StudentLists";
 import Home from "./component/Home";
+import { StudentData } from "./assets/StudentData";
 
 function App() {
   const [studentData, setStudentData] = useState({});
 
-  const [studentsList, setStudentsList] = useState([]);
+  const [studentsList, setStudentsList] = useState(StudentData);
   return (
     <StudentContext.Provider
       value={{ studentData, setStudentData, studentsList, setStudentsList }}
